@@ -35,6 +35,18 @@ app.post('/personagens', (req, res) => {
   res.send("Novo personagem adicionado com sucesso!")
 })
 
+app.put('/personagens/:id', (req, res) => {
+  const id = req.params.id
+  const nomeAtualizado = req.body.nome
+  const imagemAtualizada = req.body.imagem
+
+  lista[id - 1] = {
+    nome: nomeAtualizado,
+    imagem: imagemAtualizada
+  }
+
+  res.send("Personagem atualizado com sucesso!")
+})
 
 
 app.listen(3000, () => {
